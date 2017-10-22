@@ -6,27 +6,26 @@ chat-space.database
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, index: true|
+|group|references|null: false, index: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+
 
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|key|string|unique: true|
-|user_id|string|null: false, foreign_key: true|
+|name|string|unique: true|
+|user|references|null: false, index: { unique: true }, foreign_key: true|
 
 ### Association
 
-- has_many :users
+- has_many :users, through: :members, source: :users
 - has_many :messages
 - has_many :members
-- has_many :users_groups, through: :members, source: :users
+
 
 
 ## usersテーブル
@@ -35,30 +34,27 @@ chat-space.database
 |------|----|-------|
 |email|string|unique: true, null: false|
 |name|string|null: false|
-|group_id|integer|null: false, foreign_key: true|
+|group|references|null: false, index: { unique: true }, foreign_key: true|
 
 ### Association
 
-- has_many :groups
-- has_many :messages
+- has_many :groups, through: :members, source: :groups
 - has_many :members
-- has_many :users_groups, through: :members, source: :groups
+- has_many :messages
 
 
-## messagesテーブル  
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |body|text||
 |image|string||
-|user_id|integer|null: false, foreign_key :true|
-|group_id|integer|null: false, foreign_key :true|
+|user|references|null: false, index: { unique: true }, foreign_key: true|
+|group|references|null: false, index: { unique: true }, foreign_key: true|
 
 
 ### Association
 
-- belongs_to :user
-- belongs_to :user
 
 
 
