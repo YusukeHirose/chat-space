@@ -6,8 +6,8 @@ chat-space.database
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, index: true|
-|group|references|null: false, index: true|
+|user|references|null: false, index: { unique: true }, foreign_key: true|
+|group|references|null: false, index: { unique: true }, foreign_key: true|
 
 ### Association
 
