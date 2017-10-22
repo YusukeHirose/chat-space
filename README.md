@@ -1,24 +1,66 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+chat-space.database
+===================
 
-Things you may want to cover:
+## membersテーブル
 
-* Ruby version
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, index: { unique: true }, foreign_key: true|
+|group|references|null: false, index: { unique: true }, foreign_key: true|
 
-* System dependencies
+### Association
 
-* Configuration
+belongs_to :group
+belongs_to user
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## groupsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|name|string|unique: true|
+|user|references|null: false, index: { unique: true }, foreign_key: true|
 
-* Deployment instructions
+### Association
 
-* ...
+- has_many :users, through: :members, source: :users
+- has_many :messages
+- has_many :members
+
+
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|email|string|unique: true, null: false|
+|name|string|null: false|
+|group|references|null: false, index: { unique: true }, foreign_key: true|
+
+### Association
+
+- has_many :groups, through: :members, source: :groups
+- has_many :members
+- has_many :messages
+
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text||
+|image|string||
+|user|references|null: false, index: { unique: true }, foreign_key: true|
+|group|references|null: false, index: { unique: true }, foreign_key: true|
+
+
+### Association
+
+belongs_to :group
+belongs_to user
+
+
+
+
