@@ -17,6 +17,7 @@ chat-space.database
 ## groupsテーブル
 
 |Column|Type|Options|
+|------|----|-------|
 |key|string|unique: true|
 |user_id|string|null: false, foreign_key: true|
 
@@ -31,6 +32,7 @@ chat-space.database
 ## usersテーブル
 
 |Column|Type|Options|
+|------|----|-------|
 |email|string|unique: true, null: false|
 |name|string|null: false|
 |group_id|integer|null: false, foreign_key: true|
@@ -46,6 +48,7 @@ chat-space.database
 ## messagesテーブル  
 
 |Column|Type|Options|
+|------|----|-------|
 |body|text||
 |image|string||
 |user_id|integer|null: false, foreign_key :true|
@@ -54,8 +57,8 @@ chat-space.database
 
 ### Association
 
-belongs_to :user
-belongs_to :user
+- belongs_to :user
+- belongs_to :user
 
 
 
