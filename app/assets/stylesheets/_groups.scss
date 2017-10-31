@@ -1,0 +1,22 @@
+.groups{
+  height: calc(100vh - 76px);
+  width: 260px;
+  background-color: #2f3e51;
+  padding: 0 20px;
+  margin-top: 20px;
+  // border: 1px solid red;
+
+    .groups_group{
+      width: auto;
+      font-size: 15px;
+      color: $white;
+      padding-bottom: 5px;
+    }
+
+    .groups_message{
+      width: auto;
+      font-size: 11px;
+      color: $white;
+      padding-bottom: 40px;
+    }
+}

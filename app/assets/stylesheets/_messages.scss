@@ -1,0 +1,193 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$white: #FFFFFF;
+$messagecolor: #434A54;
+$top-button: #38AEF0;
+
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  margin:0 auto;
+
+    .notice{
+      width: 100vw;
+      height: 25px;
+      background-color: $top-button;
+
+        p {
+          text-align: center;
+          color:#FFFFFF;
+        }
+
+    }
+
+    .leftwrapper{
+      width: 300px;
+      height: 100vh;
+      background-color: #2f3e51;
+      float: left;
+
+        .leftcontent{
+          width: 300px;
+          height: 100vh;
+          // border: 1px solid red;
+
+            .username{
+              height: 96px;
+              width: 260px;
+              background-color: #253141;
+              padding: 0 20px;
+              // border:1px solid green;
+
+                h1{
+                  font-size: 16px;
+                  color: #FFFFFF;
+                  font-weight: bold;
+                  line-height: 96px;
+                  float: left;
+                }
+
+                .username_icons{
+                  float: right;
+                  list-style: none;
+                  line-height: 96px;
+
+                    i{
+                      color: white;
+                      padding: 0 5px;
+                        &:hover{
+                          color: blue;
+                        }
+                    }
+                }
+            }
+
+            // .groups以下 _groups.scssへ
+        }
+    }
+
+    .rightwrapper{
+      height: 100vh;
+      width: calc(100vw - 300px);
+      float: left;
+      // background-color: black;
+
+        .rightcontent{
+          width: calc(100vw - 300px);
+          height: 100vh;
+          // border:1px solid orange;
+
+            .header{
+              height:95px;
+              width: calc(100vw - 380px);
+              // background-color: #253141;
+              padding: 0 40px;
+
+                .header_left{
+                  float: left;
+                    h3{
+                      font-size: 20px;
+                      color: #333333;
+                      padding-top: 35px;
+                      padding-bottom: 15px;
+                    }
+
+                    p{
+                      font-size: 12px;
+                      color: #999999;
+                    }
+                }
+
+                .header_right{
+                  float: right;
+                  // border: 1px solid blue;
+                  width: 100px;
+                  height: 96px;
+                    a{
+                      display: inline-block;
+                      width: auto;
+                      height: 40px;
+                      line-height: 40px;
+                      text-align: center;
+                      color: $top-button;
+                      padding: 0 20px;
+                      border: 1px solid $top-button;
+                      margin-top: 28px;
+                      text-decoration: none;
+                      float: right;
+                    }
+                }
+            }
+
+            .body{
+              height: calc(100vh - 193px);
+              width: calc(100vw - 380px);
+              padding: 46px 40px 0 40px;
+              background-color: #AAAAAA;
+              border-top: 1px solid #eeeeee;
+
+              // 以下 _chat.scssファイルに
+            }
+
+            .footer{
+              height: 90px;
+              padding: 0 40px;
+              width: calc(100vw - 380px);
+              // background-color: red;
+                .form{
+                  padding: 20px 0;
+                }
+                    .form_message{
+                      width: 720px;
+                      height: 50px;
+                      padding: 0 10px;
+                      font-size: 16px;
+                      color: $white;
+                      float: left;
+                      border: none;
+                      background-color: black;
+                    }
+
+                    .form_right{
+                      width: 34px;
+                      height: 50px;
+                      float: left;
+                      background-color: black;
+
+                          .form_right-label{
+                            font-size: 20px;
+                            line-height: 50px;
+                            padding-right: 10px;
+
+                              i{
+                                display: inline-block;
+                                color: $white;
+                              }
+
+                              .hide{
+                                display: none;
+                              }
+                          }
+                    }
+
+                    .form_submit{
+                      height: 50px;
+                      margin-left: 15px;
+                      background-color: #38AEF0;
+                      border: none;
+                      float: right;
+                      font-size: 16px;
+                      padding: 0 30px;
+                      color: $white;
+                    }
+            }
+        }
+    }
+}
+
+
+
+
+

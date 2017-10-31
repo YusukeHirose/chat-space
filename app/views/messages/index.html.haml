@@ -1,0 +1,47 @@
+!!!
+%div.wrapper
+  %div.notice
+    %p チャットグループが作成されました。
+  %div.leftwrapper
+    %div.leftcontent
+      %div.username
+        %h1 ユーザーネーム
+        %li.username_icons
+          = link_to root_path do
+            %i.fa.fa-pencil-square-o
+          = link_to root_path do
+            %i.fa.fa-cog
+      %div.groups
+        %dl.groups_group グループ名
+        %dt.groups_message 新着メッセージがありません。
+        %dl.groups_group グループ名
+        %dt.groups_message 新着メッセージがありません。
+        %dl.groups_group グループ名
+        %dt.groups_message 新着メッセージがありません。
+  %div.rightwrapper
+    %div.rightcontent
+      %div.header
+        %div.header_left
+          %h3 Sampleグループ
+          %p member1member2member3
+        %div.header_right
+          = link_to root_path do
+            Edit
+      %div.body
+        %ul.body_messages
+          %li.body_messages-username UserName
+          %span.body_messages-date 2017/10/30
+          %li.body_messages-message happyhalloween!!
+        %ul.body_messages
+          %li.body_messages-username UserName
+          %span.body_messages-date 2017/10/30
+          %li.body_messages-message happyhalloween!!
+      %div.footer
+        %div.form
+          %input{class: "form_message", type: "text", placeholder: "type a message"}
+          %div.form_right
+            %label{class: "form_right-label", for: "form_image"}
+              %i.fa.fa-picture-o
+              %input{class: "hide",type: "file", id: "form_image"}
+          %input{class: "form_submit", type: "submit", value: "Send"}
+
