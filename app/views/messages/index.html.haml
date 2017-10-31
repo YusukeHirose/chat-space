@@ -1,47 +1,47 @@
 !!!
-%div.wrapper
-  %div.notice
+.wrapper
+  .notice
     %p チャットグループが作成されました。
-  %div.leftwrapper
-    %div.leftcontent
-      %div.username
+  .leftwrapper
+    .leftcontent
+      .username
         %h1 ユーザーネーム
-        %li.username_icons
+        %li.username__icons
           = link_to root_path do
             %i.fa.fa-pencil-square-o
           = link_to root_path do
             %i.fa.fa-cog
-      %div.groups
-        %dl.groups_group グループ名
-        %dt.groups_message 新着メッセージがありません。
-        %dl.groups_group グループ名
-        %dt.groups_message 新着メッセージがありません。
-        %dl.groups_group グループ名
-        %dt.groups_message 新着メッセージがありません。
-  %div.rightwrapper
-    %div.rightcontent
-      %div.header
-        %div.header_left
+      .groups
+        %dl.groups__group グループ名
+        %dt.groups__message 新着メッセージがありません。
+        %dl.groups__group グループ名
+        %dt.groups__message 新着メッセージがありません。
+        %dl.groups__group グループ名
+        %dt.groups__message 新着メッセージがありません。
+  .rightwrapper
+    .rightcontent
+      .header
+        .header__left
           %h3 Sampleグループ
           %p member1member2member3
-        %div.header_right
+        .header__right
           = link_to root_path do
             Edit
-      %div.body
-        %ul.body_messages
-          %li.body_messages-username UserName
-          %span.body_messages-date 2017/10/30
-          %li.body_messages-message happyhalloween!!
-        %ul.body_messages
-          %li.body_messages-username UserName
-          %span.body_messages-date 2017/10/30
-          %li.body_messages-message happyhalloween!!
-      %div.footer
-        %div.form
-          %input{class: "form_message", type: "text", placeholder: "type a message"}
-          %div.form_right
-            %label{class: "form_right-label", for: "form_image"}
+      .body
+        %ul.body__messages
+          %li.body__messages_username UserName
+          %span.body__messages_date 2017/10/30
+          %li.body__messages_message happyhalloween!!
+        %ul.body__messages
+          %li.body__messages_username UserName
+          %span.body__messages_date 2017/10/30
+          %li.body__messages_message happyhalloween!!
+      .footer
+        .form
+          %input{class: "form__message", type: "text", placeholder: "type a message"}
+          .form__right
+            %label{class: "form__right_label", for: "form__image"}
               %i.fa.fa-picture-o
-              %input{class: "hide",type: "file", id: "form_image"}
-          %input{class: "form_submit", type: "submit", value: "Send"}
+              %input{class: "hide",type: "file", id: "form__image"}
+          %input{class: "form__submit", type: "submit", value: "Send"}
 

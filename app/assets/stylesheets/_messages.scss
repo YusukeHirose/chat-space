@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$white: #FFFFFF;
+
 $messagecolor: #434A54;
 $top-button: #38AEF0;
 
@@ -32,14 +32,14 @@ $top-button: #38AEF0;
         .leftcontent{
           width: 300px;
           height: 100vh;
-          // border: 1px solid red;
+
 
             .username{
               height: 96px;
               width: 260px;
               background-color: #253141;
               padding: 0 20px;
-              // border:1px solid green;
+
 
                 h1{
                   font-size: 16px;
@@ -49,7 +49,7 @@ $top-button: #38AEF0;
                   float: left;
                 }
 
-                .username_icons{
+                &__icons{
                   float: right;
                   list-style: none;
                   line-height: 96px;
@@ -72,21 +72,22 @@ $top-button: #38AEF0;
       height: 100vh;
       width: calc(100vw - 300px);
       float: left;
-      // background-color: black;
+
 
         .rightcontent{
           width: calc(100vw - 300px);
           height: 100vh;
-          // border:1px solid orange;
+
 
             .header{
               height:95px;
               width: calc(100vw - 380px);
-              // background-color: #253141;
+
               padding: 0 40px;
 
-                .header_left{
+                &__left{
                   float: left;
+
                     h3{
                       font-size: 20px;
                       color: #333333;
@@ -100,9 +101,9 @@ $top-button: #38AEF0;
                     }
                 }
 
-                .header_right{
+                &__right{
                   float: right;
-                  // border: 1px solid blue;
+
                   width: 100px;
                   height: 96px;
                     a{
@@ -121,15 +122,8 @@ $top-button: #38AEF0;
                 }
             }
 
-            .body{
-              height: calc(100vh - 193px);
-              width: calc(100vw - 380px);
-              padding: 46px 40px 0 40px;
-              background-color: #AAAAAA;
-              border-top: 1px solid #eeeeee;
 
               // 以下 _chat.scssファイルに
-            }
 
             .footer{
               height: 90px;
@@ -138,32 +132,32 @@ $top-button: #38AEF0;
               // background-color: red;
                 .form{
                   padding: 20px 0;
-                }
-                    .form_message{
+
+                    &__message{
                       width: 720px;
                       height: 50px;
                       padding: 0 10px;
                       font-size: 16px;
-                      color: $white;
+                      color: #FFFFFF;
                       float: left;
                       border: none;
                       background-color: black;
                     }
 
-                    .form_right{
+                    &__right{
                       width: 34px;
                       height: 50px;
                       float: left;
                       background-color: black;
 
-                          .form_right-label{
+                          &_label{
                             font-size: 20px;
                             line-height: 50px;
                             padding-right: 10px;
 
                               i{
                                 display: inline-block;
-                                color: $white;
+                                color: #FFFFFF;
                               }
 
                               .hide{
@@ -172,7 +166,7 @@ $top-button: #38AEF0;
                           }
                     }
 
-                    .form_submit{
+                    &__submit{
                       height: 50px;
                       margin-left: 15px;
                       background-color: #38AEF0;
@@ -180,8 +174,9 @@ $top-button: #38AEF0;
                       float: right;
                       font-size: 16px;
                       padding: 0 30px;
-                      color: $white;
+                      color: #FFFFFF;
                     }
+                }
             }
         }
     }

@@ -4,19 +4,19 @@
   background-color: #2f3e51;
   padding: 0 20px;
   margin-top: 20px;
-  // border: 1px solid red;
 
-    .groups_group{
+
+    &__group{
       width: auto;
       font-size: 15px;
-      color: $white;
+      color: #FFFFFF;
       padding-bottom: 5px;
     }
 
-    .groups_message{
+    &__message{
       width: auto;
       font-size: 11px;
-      color: $white;
+      color: #FFFFFF;
       padding-bottom: 40px;
     }
 }
