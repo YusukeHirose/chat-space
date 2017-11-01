@@ -1,0 +1,22 @@
+.groups{
+  height: calc(100vh - 76px);
+  width: 260px;
+  background-color: #2f3e51;
+  padding: 0 20px;
+  margin-top: 20px;
+
+
+    &__group-name{
+      width: auto;
+      font-size: 15px;
+      color: #FFFFFF;
+      padding-bottom: 5px;
+    }
+
+    &__message{
+      width: auto;
+      font-size: 11px;
+      color: #FFFFFF;
+      padding-bottom: 40px;
+    }
+}
