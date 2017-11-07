@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(create_params)
+    current_user.update(update_params)
     redirect_to :root
   end
 
-  def create_params
+  def update_params
     params.require(:user).permit(:name, :email)
   end
 

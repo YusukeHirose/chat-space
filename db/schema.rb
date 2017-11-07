@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20171101090904) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name",                                null: false
-    t.integer  "group_id",               default: 1,  null: false
+    t.string   "name"
+    t.integer  "group_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["group_id"], name: "index_users_on_group_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
