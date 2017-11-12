@@ -1,0 +1,112 @@
+@mixin btn {
+  display: inline-block;
+          margin-top: 20px;
+          background-color: lightgray;
+          width: 135px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          color: #FFFFFF;
+          border-radius: 2px;
+}
+
+
+#account-page{
+  display: block;
+
+    .account-page__inner{
+      box-sizing: border-box;
+      width: calc(100vw -100px);
+      margin: 60px 140px;
+      padding: 70px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      clear: both;
+
+      &--left{
+            float: left;
+            width: 45%;
+
+        h2{
+          font-size: 40px;
+          margin-bottom: 15px;
+          letter-spacing: 3px;
+
+          &:after{
+            display: block;
+            content: "";
+            width: 80px;
+            border: 1px solid $top-button;
+          }
+        }
+
+        h5{
+          font-size: 16px;
+        }
+
+        .btn{
+         @include btn;
+
+
+              &:last-child{
+                width: 195px;
+                margin-left: 10px;
+              }
+
+              &:hover{
+                color: black;
+              }
+        }
+      }// ここまで&--left
+
+      &--right{
+        float: left;
+        margin-left: 30px;
+        width: 45%;
+
+          .field{
+
+              &-label{
+                font-size: 14px;
+                margin-bottom: 10px;
+              }
+
+              &-input{
+                box-sizing: border-box;
+                width: 100%;
+                margin-bottom: 15px;
+
+                .input{
+                  width:100%;
+                  height: 40px;
+                }
+              }
+          }//ここまで.field
+
+          .actions{
+            margin: 40px 0;
+
+            .btn{
+            background-color: $top-button;
+            width: 135px;
+            height: 50px;
+            border: none;
+            color: #FFFFFF;
+            cursor : pointer;
+            box-shadow: 3px 3px 5px gray;
+
+                &:active{
+                  box-shadow: none;
+                }
+            }
+          }
+      }// ここまで&--right
+    }
+    .clearfix:after{
+      clear: both;
+      content: "";
+      display: block;
+    }
+}
+
