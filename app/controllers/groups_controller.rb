@@ -1,18 +1,14 @@
 class GroupsController < ApplicationController
 
-  def new
-
-  end
-
   def index
 
   end
 
-  def create
+  def new
 
   end
 
-  def show
+  def create
 
   end
 
