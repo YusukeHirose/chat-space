@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
 
   def index
-
+    @group = Group.new
   end
 
   def new
-
+    @group = Group.new
   end
 
   def create
@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-
+    @group = Group.new
   end
 
   def update
