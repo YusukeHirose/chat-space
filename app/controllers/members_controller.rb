@@ -1,14 +1,18 @@
 class MembersController < ApplicationController
 
   def index
-    @member = Member.new
+    member_new
   end
 
   def new
-    @member = Member.new
+    member_new
   end
 
   def create
+    member_new
+  end
+
+  def member_new
     @member = Member.new
   end
 end

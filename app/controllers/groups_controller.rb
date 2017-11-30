@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
 
   def index
-   
   end
 
   def new
@@ -11,14 +10,13 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_messages_path(@group), notice: "グループを作成しました。"
+      redirect_to group_messages_path(@group), flash: {notice: "グループを作成しました。"}
     else
       render action: :new
     end
   end
 
   def edit
-    # binding.pry
      @group = Group.new
   end
 

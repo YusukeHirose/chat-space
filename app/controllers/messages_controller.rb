@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
   end
 
   def index
-    # binding.pry
     @groups = current_user.groups
     @message = Message.new
   end
