@@ -12,7 +12,8 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to group_messages_path(@group), notice: "グループを作成しました。"
     else
-      render action: :new, flash.now[:alert] = "グループ作成失敗"
+      flash.now[:alert] = "グループ作成失敗"
+      render action: :new
     end
   end
 
@@ -24,7 +25,8 @@ class GroupsController < ApplicationController
     if @group = Group.update(group_params)
       redirect_to :root, notice: "グループを更新しました。"
     else
-      render action: :edit, flash.now[:alert] = "グループ更新失敗"
+      flash.now[:alert] = "グループ更新失敗"
+      render action: :edit
     end
   end
 
