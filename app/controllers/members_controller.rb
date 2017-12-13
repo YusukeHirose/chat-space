@@ -1,15 +1,16 @@
 class MembersController < ApplicationController
+  before_action :member_new, only: [:index,:new]
 
   def index
-    member_new
+
   end
 
   def new
-    member_new
+
   end
 
   def create
-    member_new
+
   end
 
   def member_new
