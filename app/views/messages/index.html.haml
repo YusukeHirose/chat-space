@@ -11,12 +11,11 @@
           = link_to edit_user_path(current_user.id) do
             %i.fa.fa-cog
       .groups
-        %dl.groups__group-name グループ名
-        %dt.groups__message 新着メッセージがありません。
-        %dl.groups__group-name グループ名
-        %dt.groups__message 新着メッセージがありません。
-        %dl.groups__group-name グループ名
-        %dt.groups__message 新着メッセージがありません。
+        - @groups.each do |group|
+          %dl.groups__group-name
+            = group.name
+          %dt.groups__message 新着メッセージがありません。
+
   .rightwrapper
     .rightcontent
       .header
@@ -24,7 +23,7 @@
           %h3 Sampleグループ
           %p member1member2member3
         .header__right
-          = link_to edit_group_path(current_user.id) do
+          = link_to edit_group_path(current_user) do
             Edit
       .body
         %ul.body__messages
