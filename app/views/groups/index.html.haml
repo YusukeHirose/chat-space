@@ -1,0 +1,17 @@
+!!!
+.wrapper
+  .flash
+  .leftwrapper
+    .leftcontent
+      .username
+        %h1 ユーザーネーム
+        %li.username__icons
+          = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
+          = link_to edit_user_path(current_user.id) do
+            %i.fa.fa-cog
+      .groups
+        - @groups.each do |group|
+          %dl.groups__group-name
+            = group.name
+          %dt.groups__message 新着メッセージがありません。
