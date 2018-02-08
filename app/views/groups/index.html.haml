@@ -4,7 +4,7 @@
   .leftwrapper
     .leftcontent
       .username
-        %h1 ユーザーネーム
+        %h1= current_user.name
         %li.username__icons
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
