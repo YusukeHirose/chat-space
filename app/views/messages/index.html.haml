@@ -4,7 +4,7 @@
   .leftwrapper
     .leftcontent
       .username
-        %h1 ユーザーネーム
+        %h1= current_user.name
         %li.username__icons
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
@@ -26,20 +26,14 @@
           = link_to edit_group_path(current_user) do
             Edit
       .body
-        %ul.body__messages
-          %li.body__messages_username UserName
-          %span.body__messages_date 2017/10/30
-          %li.body__messages_message happyhalloween!!
-        %ul.body__messages
-          %li.body__messages_username UserName
-          %span.body__messages_date 2017/10/30
-          %li.body__messages_message happyhalloween!!
+        = render @message
       .footer
         .form
-          %input{class: "form__message", type: "text", placeholder: "type a message"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, placeholder: "type a message", class: "form__message"
           .form__right
-            %label{class: "form__right_label", for: "form__image"}
-              %i.fa.fa-picture-o
-              %input{class: "hide",type: "file", id: "form__image"}
-          %input{class: "form__submit", type: "submit", value: "Send"}
+            = f.label :image, class: "form__right_label" do
+              = fa_icon "picture-o"
+              = f.file_field :image, class: "hide"
+          = f.submit "Send", class: "form__submit"
 

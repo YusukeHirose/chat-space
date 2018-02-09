@@ -13,11 +13,11 @@ class MessagesController < ApplicationController
 
   def new
     @group = Group.find(params[:group_id])
-    @message = Message.new
     @member = Member.new
   end
 
   def create
+     # binding.pry
     @message = Message.new(message_params)
     @group = Group.find(params[:group_id])
     if @message.save
@@ -39,7 +39,7 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:body,:image,:image_cache).merge(user_id: current_user.id,group_id: params[:group_id])
+    params.require(:message).permit(:body,:image,:image_cache).merge(user_id:current_user.id, group_id: params[:group_id])
   end
   
 end
