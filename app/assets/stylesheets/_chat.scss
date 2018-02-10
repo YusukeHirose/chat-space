@@ -8,7 +8,7 @@
 
 
     &__messages{
-      margin-bottom: 40px;
+      margin-bottom: 20px;
 
         &_username{
           font-size: 16px;
@@ -27,6 +27,13 @@
           font-size: 14px;
           color: $messagecolor;
           margin-top: 10px;
+          list-style: none;
+          float: left;
+
+            p {
+              margin-left: 40px;
+              margin-right: 40px;
+            }
         }
     }
 }

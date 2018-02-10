@@ -26,7 +26,7 @@
           = link_to edit_group_path(current_user) do
             Edit
       .body
-        = render @message
+        = render @messages
       .footer
         .form
         = form_for [@group, @message] do |f|

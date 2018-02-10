@@ -1,25 +1,21 @@
 class MessagesController < ApplicationController
     before_action :message_new, only: [:index,:new]
+    before_action :group_id_find, only: :create
+    helper_method :time_format
 
   def index
     @groups = current_user.groups
     if Group.present?
       @group = Group.find(params[:group_id])
+      @messages = @group.messages.includes(:user)
     else
       redirect_to root_path
     end
-    @messages = Message.all
-  end
-
-  def new
-    @group = Group.find(params[:group_id])
-    @member = Member.new
+    # @messages = Message.all
   end
 
   def create
-     # binding.pry
     @message = Message.new(message_params)
-    @group = Group.find(params[:group_id])
     if @message.save
       redirect_to group_messages_path(@group), notice: "メッセージを送信しました。"
     else
@@ -32,14 +28,17 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
-
-  private
-  def group_params
-    params.require(:message).permit(:group_id)
+  def group_id_find
+    @group = Group.find(params[:group_id])
   end
 
+  def time_format(post_time)
+    post_time.strftime('%Y/%m/%d %H:%M')
+  end
+
+  private
   def message_params
     params.require(:message).permit(:body,:image,:image_cache).merge(user_id:current_user.id, group_id: params[:group_id])
   end
-  
+
 end
