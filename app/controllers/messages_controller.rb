@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
     else
       redirect_to root_path
     end
-    # @messages = Message.all
   end
 
   def create
