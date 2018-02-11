@@ -28,14 +28,14 @@ class MessagesController < ApplicationController
   end
 
   private
-  def message_new
+  def set_message
     @message = Message.new
   end
 
   def group_id_find
     @group = Group.find(params[:group_id])
   end
-  
+
   def message_params
     params.require(:message).permit(:body, :image, :image_cache).merge(user_id: current_user.id, group_id: params[:group_id])
   end
