@@ -23,6 +23,11 @@ class MessagesController < ApplicationController
 
   end
 
+  def time_format(post_time)
+    post_time.strftime('%Y/%m/%d %H:%M')
+  end
+
+  private
   def message_new
     @message = Message.new
   end
@@ -30,12 +35,7 @@ class MessagesController < ApplicationController
   def group_id_find
     @group = Group.find(params[:group_id])
   end
-
-  def time_format(post_time)
-    post_time.strftime('%Y/%m/%d %H:%M')
-  end
-
-  private
+  
   def message_params
     params.require(:message).permit(:body, :image, :image_cache).merge(user_id: current_user.id, group_id: params[:group_id])
   end
