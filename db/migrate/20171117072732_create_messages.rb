@@ -4,8 +4,8 @@ class CreateMessages < ActiveRecord::Migration[5.0]
 
       t.text  :body
       t.string  :image
-      t.references  :user,  index: { unique: true }, foreign_key: true
-      t.timestamps  :grouop,  index: { unique: true }, foreign_key: true
+      t.references  :user, foreign_key: true
+      t.timestamps
     end
   end
 end

@@ -4,7 +4,7 @@
   .leftwrapper
     .leftcontent
       .username
-        %h1 ユーザーネーム
+        %h1= current_user.name
         %li.username__icons
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o
@@ -13,5 +13,5 @@
       .groups
         - @groups.each do |group|
           %dl.groups__group-name
-            = group.name
+            %i= group.name
           %dt.groups__message 新着メッセージがありません。

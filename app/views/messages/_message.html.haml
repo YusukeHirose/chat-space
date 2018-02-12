@@ -1,0 +1,10 @@
+%ul.body__messages
+  %li.body__messages_username
+    = message.user.name
+  %span.body__messages_date
+    = time_format(message.created_at)
+  %li.body__messages_message
+    = message.body if message.body.present?
+  %li.body__messages_image
+    = image_tag message.image.url if message.image.present?
+
