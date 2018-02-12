@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
-    before_action :message_new, only: [:index,:new]
+    before_action :set_message, only: [:index,:new]
     before_action :group_id_find, only: :create
-    helper_method :time_format
 
   def index
     @groups = current_user.groups
@@ -19,12 +18,7 @@ class MessagesController < ApplicationController
       redirect_to group_messages_path(@group), notice: "メッセージを送信しました。"
     else
       redirect_to group_messages_path(@group), alert: "メッセージを入力してください。"
-  end
-
-  end
-
-  def time_format(post_time)
-    post_time.strftime('%Y/%m/%d %H:%M')
+    end
   end
 
   private
