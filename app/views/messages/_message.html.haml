@@ -5,6 +5,7 @@
     = time_format(message.created_at)
 - if message.body.present?
   %li.body__messages_message
-    %p= message.body
-%p= image_tag message.image.url if message.image.present?
+    = message.body
+  %li.body__messages_image
+    = image_tag message.image.url if message.image.present?
 

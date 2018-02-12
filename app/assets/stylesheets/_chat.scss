@@ -6,9 +6,9 @@
   border-top: 1px solid #eeeeee;
   overflow: scroll;
 
-
     &__messages{
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      clear: both;
 
         &_username{
           font-size: 16px;
@@ -24,16 +24,20 @@
         }
 
         &_message{
+          list-style: none;
           font-size: 14px;
           color: $messagecolor;
           margin-top: 10px;
+          margin-bottom: 15px;
+          margin-left: 10px;
+        }
+
+        &_image{
           list-style: none;
           float: left;
-
-            p {
-              margin-left: 40px;
-              margin-right: 40px;
-            }
+          margin-left: 10px;
+          margin-top: 5px;
+          margin-bottom: 15px;
         }
     }
 }
