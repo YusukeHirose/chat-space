@@ -4,11 +4,12 @@ class MessagesController < ApplicationController
 
   def index
     @groups = current_user.groups
-    if Group.present?
+    begin
       @group = Group.find(params[:group_id])
-      @messages = @group.messages.includes(:user)
-    else
+    rescue
       redirect_to root_path
+    else
+      @messages = @group.messages.includes(:user)
     end
   end
 
