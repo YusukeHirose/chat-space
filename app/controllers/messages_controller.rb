@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     rescue
       redirect_to root_path
     else
-      # binding.pry
       @messages = @group.messages.includes(:user)
       @member = @group.users
     end
