@@ -10,14 +10,5 @@
             %i.fa.fa-pencil-square-o
           = link_to edit_user_path(current_user.id) do
             %i.fa.fa-cog
-      .groups
-        - @groups.each do |group|
-          %dl.groups__group-name
-            = link_to group_messages_path(group.id) do
-              = group.name
-          -if group.messages.pluck(:body).last.present?
-            %dt.groups__message= group.messages.pluck(:body).last
-          -elsif group.messages.pluck(:image).last.present?
-            %dt.groups__message 画像が投稿されました。
-          -else
-            %dt.groups__message まだ投稿されていません。
+
+      = render partial: "messages/newmessage"

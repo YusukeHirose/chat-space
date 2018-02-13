@@ -1,0 +1,12 @@
+.groups
+  - @groups.each do |group|
+    %dl.groups__group-name
+      = link_to group_messages_path(group.id) do
+        = group.name
+    %dt.groups__message
+      -if group.messages.pluck(:body).last.present?
+        = group.messages.pluck(:body).last
+      -elsif group.messages.pluck(:image).last.present?
+        画像が投稿されました。
+      -else
+        まだ投稿されていません。
