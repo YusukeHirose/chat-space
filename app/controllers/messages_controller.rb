@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
       redirect_to root_path
     else
       @messages = @group.messages.includes(:user)
+      @member = @group.users
     end
   end
 
