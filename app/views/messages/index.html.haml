@@ -24,7 +24,8 @@
     .rightcontent
       .header
         .header__left
-          %h3 Member :
+          %h3= @group.name
+          %p Member :
           - groupmembers = @group.users
           - groupmembers.each do |groupmember|
             %p= groupmember.name
