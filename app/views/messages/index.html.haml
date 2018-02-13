@@ -28,9 +28,8 @@
         .header__left
           %h3= @group.name
           %p Member :
-          - groupmembers = @group.users
-          - groupmembers.each do |groupmember|
-            %p= groupmember.name
+          - @member.each do |m|
+            %p= m.name
         .header__right
           = link_to edit_group_path(current_user) do
             Edit
