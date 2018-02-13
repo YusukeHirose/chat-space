@@ -15,4 +15,7 @@
           %dl.groups__group-name
             = link_to group_messages_path(group.id) do
               = group.name
-          %dt.groups__message= group.messages.pluck(:body).last
+          -if group.messages.pluck(:body).last == ""
+            %dt.groups__message 画像が投稿されました。
+          -else
+            %dt.groups__message= group.messages.pluck(:body).last
