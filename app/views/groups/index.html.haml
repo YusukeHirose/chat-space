@@ -18,6 +18,6 @@
           -if group.messages.pluck(:body).last.present?
             %dt.groups__message= group.messages.pluck(:body).last
           -elsif group.messages.pluck(:image).last.present?
-            %dt.groups__message まだ投稿されていません。
-          -else
             %dt.groups__message 画像が投稿されました。
+          -else
+            %dt.groups__message まだ投稿されていません。
