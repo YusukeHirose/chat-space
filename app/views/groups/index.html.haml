@@ -13,5 +13,6 @@
       .groups
         - @groups.each do |group|
           %dl.groups__group-name
-            %i= group.name
-          %dt.groups__message 新着メッセージがありません。
+            = link_to group_messages_path(group.id) do
+              = group.name
+          %dt.groups__message= group.messages.pluck(:body).last
