@@ -24,8 +24,10 @@
     .rightcontent
       .header
         .header__left
-          %h3 Sampleグループ
-          %p member1member2member3
+          %h3 Member :
+          - groupmembers = @group.users
+          - groupmembers.each do |groupmember|
+            %p= groupmember.name
         .header__right
           = link_to edit_group_path(current_user) do
             Edit
