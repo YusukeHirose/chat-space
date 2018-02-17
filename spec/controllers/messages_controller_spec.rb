@@ -14,15 +14,15 @@ describe MessagesController, type: :controller do
         get :index, params: {group_id: group.id}
       end
 
-      it 'assigns @message' do
+      it '@message is instance in message class and is not saved' do
         expect(assigns(:message)).to be_a_new(Message)
       end
 
-      it 'assigns @group' do
+      it '@group is instance in group class' do
         expect(assigns(:group)).to eq group
       end
 
-      it 'renders index' do
+      it 'renders index from message#index' do
         expect(response).to render_template :index
       end
     end
@@ -51,11 +51,11 @@ describe '#create' do
         params: params
       }
 
-      it 'count up message' do
+      it 'count up message when user send a message' do
         expect { subject }.to change(Message, :count).by(1)
       end
 
-      it 'redirects to group_messages_path' do
+      it 'redirects to group_messages_path when message#create' do
         subject
         expect(response).to redirect_to(group_messages_path(group))
       end
@@ -69,11 +69,11 @@ describe '#create' do
         params: invalid_params
       }
 
-      it 'doesnt count up' do
+      it 'does not count up message becouse invalid_params' do
         expect{ subject }.not_to change(Message, :count)
       end
 
-      it 'renders index' do
+      it 'redirect to group_messages_path when fail to save' do
         subject
         expect(response).to redirect_to(group_messages_path(group))
       end
