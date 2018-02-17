@@ -4,10 +4,10 @@ class Message < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  validates :bory_or_image, presence: true
+  validates :body_or_image, presence: true
 
   private
-  def bory_or_image
+  def body_or_image
     body.presence or image.presence
   end
 end
