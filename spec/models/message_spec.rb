@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Message, type: :model do
   describe '#create' do
-    context 'save' do
+    context 'message succeed to be saved' do
       it 'is valid for message only with body' do
         expect(build(:message, image: nil)).to be_valid
       end
