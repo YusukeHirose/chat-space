@@ -39,8 +39,9 @@ $(document).on('turbolinks:load', function() {
         contentType: false
       })
       .done(function(data){
-        var html = buildHTML(data);
-        $('.body').append(html)
+        var html = buildHTML(data)
+        var target = $('.body').append(html)
+	      $(target).animate({scrollTop: $(target)[0].scrollHeight})
         $('.form__message').val("")
         $('.hide').val("")
       })
