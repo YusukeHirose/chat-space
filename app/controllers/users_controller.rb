@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def update_params
     params.require(:user).permit(:name, :email)
   end
