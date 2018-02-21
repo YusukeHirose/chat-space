@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function() {
                   </ul>`
       return html;
     }
-
+    $('.form__submit').removeAttr('data-disable-with');
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
@@ -49,5 +49,5 @@ $(document).on('turbolinks:load', function() {
         alert('メッセージ送信に失敗しました。');
       })
     })
-  });
+  })
 })
