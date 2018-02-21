@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function() {
                       ${message.user_name}
                     </li>
                     <span class="body__messages_date">
-                      ${message.date}
+                      ${message.time}
                     </span>
                     <li class="body__messages_message">
                       ${json_body}
