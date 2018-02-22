@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def edit
@@ -14,13 +17,6 @@ class UsersController < ApplicationController
     else
       flash.now[:alert] = "編集に失敗しました。"
       render action: :edit
-    end
-  end
-
-  def search
-    respond_to do |format|
-      format.html
-      format.json
     end
   end
 
