@@ -14,22 +14,34 @@
 
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label :name, "グループ名", class: "chat-group-form__label",for: "chat_group_name"
-
-
+        %label{class: "chat-group-form__label",for: "chat_group_name"}グループ名
       .chat-group-form__field--right
         = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input", id: "chat_group_name"
 
     .chat-group-form__field.clearfix
-      -# <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します  -->
       .chat-group-form__field--left
         %label{class: "chat-group-form__label", for: "chat_group_チャットメンバーを追加"}チャットメンバーを追加
-
       .chat-group-form__field--right
+        = f.text_field :name, placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input", id: "user-search-field"
         .chat-group-form__search.clearfix
-          = f.text_field :name, placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input", id: "user-search-field"
-
+          .chat-group-user.clearfix
         #user-search-result
+
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        %label{class: "chat-group-form__label" ,for: "chat_group_チャットメンバー"}チャットメンバー
+      .chat-group-form__field--right
+        = f.hidden_field :name, class: "chat-group-form__input", id: "user-search-field"
+        .chat-group-form__search.clearfix
+          .chat-group-user.clearfix
+        #member_list
+        -# - @member.each do |user|
+        -#   %p{class: "chat-group-user__name"}#{user.name}
+        -#   %a{class: "user-search-add chat-group-user__btn chat-group-user__btn--add"}削除
+
+      -# <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します  -->
+      -# .chat-group-form__field--left
+      -# .chat-group-form__field--right
           -# = f.submit "更新する", name: "commit", class: "chat-group-form__action-btn"
     -# .chat-group-form__field.clearfix
     -#   .chat-group-form__field--left
