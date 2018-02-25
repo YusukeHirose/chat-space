@@ -34,10 +34,16 @@
         = f.hidden_field :name, class: "chat-group-form__input", id: "user-search-field"
         .chat-group-form__search.clearfix
           .chat-group-user.clearfix
-        #member_list
-        -# - @member.each do |user|
-        -#   %p{class: "chat-group-user__name"}#{user.name}
-        -#   %a{class: "user-search-add chat-group-user__btn chat-group-user__btn--add"}削除
+        #member-list
+        - @member.each do |user|
+          .chat-group-user.clearfix.js-chat-member#chat-group-user
+            = f.hidden_field :name
+            %p{class: "chat-group-user__name"}#{user.name}
+            %a{class: "user-search-remove chat-group-user__btn chat-group-user__btn--remove"}削除
+
+
+
+
 
       -# <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します  -->
       -# .chat-group-form__field--left

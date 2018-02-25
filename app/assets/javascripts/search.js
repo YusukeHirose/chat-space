@@ -44,4 +44,10 @@ $(function() {
       alert("ユーザー検索に失敗しました。");
     })
   });
+
+  var add_button = $("user-search-add chat-group-user__btn chat-group-user__btn--add")
+  $(search_list).on("click",add_button, function(){
+    alert("追加の要素クリック");
+  });
+
 });
