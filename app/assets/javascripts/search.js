@@ -54,16 +54,13 @@ $(function() {
     memberList.append(html)
   };
 
-  var addButton = $("user-search-add chat-group-user__btn chat-group-user__btn--add")
-  $(searchList).on("click",addButton, function(){
-    var userInfo = $('.chat-group-user__btn--add')[0];
-    $(this).children().remove();
-    addUser(userInfo);
+  $(document).on("click",".user-search-add", function(){
+    $(this).parent().remove();
+    addUser(this);
   });
 
-  var deleteButton = $("user-search-remove chat-group-user__btn chat-group-user__btn--remove")
-  $(memberList).on("click",deleteButton, function(){
-    $(this).children().remove();
+  $(document).on("click",".user-search-remove", function(){
+    $(this).parent().remove();
   });
 
 });

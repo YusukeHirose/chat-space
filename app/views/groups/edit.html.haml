@@ -35,11 +35,10 @@
         .chat-group-form__search.clearfix
           .chat-group-user.clearfix
         #member-list
-        - @member.each do |user|
-          .chat-group-user.clearfix.js-chat-member#chat-group-user
-            = f.hidden_field :name
-            %p{class: "chat-group-user__name"}#{user.name}
-            %a{class: "user-search-remove chat-group-user__btn chat-group-user__btn--remove"}削除
+          - @member.each do |user|
+            .chat-group-user.clearfix.js-chat-member
+              %p{class: "chat-group-user__name"}#{user.name}
+              %a{class: "user-search-remove chat-group-user__btn chat-group-user__btn--remove"}削除
 
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
