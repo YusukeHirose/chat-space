@@ -1,22 +1,20 @@
 $(function() {
-
-  var search_list = $("#user-search-result");
-  var member_list = $("#member-list")
+  var searchList = $("#user-search-result");
+  var memberList = $("#member-list")
 
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
                   <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
                 </div>`
-    console.log(html)
-    search_list.append(html);
+    searchList.append(html);
   }
 
   function appendNoUser(user) {
     var html = `<div calss="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user}</p>
                 </div>`
-    member_list.append(html);
+    searchList.append(html);
   }
 
   $("#user-search-field").on("keyup", function() {
@@ -43,11 +41,29 @@ $(function() {
     .fail(function() {
       alert("ユーザー検索に失敗しました。");
     })
+  });//ここまでkeyup時の処理
+
+  function addUser(user) {
+    var userId = $(user).data("user-id");
+    var userName = $(user).data("user-name");
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+                  <input name='group[user_ids][]' type='hidden' value='${userId}'>
+                  <p class='chat-group-user__name'>${userName}</p>
+                  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+                </div>`
+    memberList.append(html)
+  };
+
+  var addButton = $("user-search-add chat-group-user__btn chat-group-user__btn--add")
+  $(searchList).on("click",addButton, function(){
+    var userInfo = $('.chat-group-user__btn--add')[0];
+    $(this).children().remove();
+    addUser(userInfo);
   });
 
-  var add_button = $("user-search-add chat-group-user__btn chat-group-user__btn--add")
-  $(search_list).on("click",add_button, function(){
-    alert("追加の要素クリック");
+  var deleteButton = $("user-search-remove chat-group-user__btn chat-group-user__btn--remove")
+  $(memberList).on("click",deleteButton, function(){
+    $(this).children().remove();
   });
 
 });
