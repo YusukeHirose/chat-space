@@ -18,6 +18,7 @@ $(function() {
   }
 
   $("#user-search-field").on("keyup", function() {
+    console.log("たっぷ")
     var input = $("#user-search-field").val();
 
     $.ajax({
