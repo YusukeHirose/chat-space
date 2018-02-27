@@ -17,30 +17,32 @@ $(function() {
     searchList.append(html);
   }
 
-  $("#user-search-field").on("keyup", function() {
+  $("#user-search-field").ready(function() {
+    $(document).on("keyup", this, function(){
     var input = $("#user-search-field").val();
 
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
-    })
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
+      })
 
-    .done(function(users) {
-      $("#user-search-result").empty();
-      if(users.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else {
-        appendNoUser("一致するユーザーはいません。")
-      }
-    })
-    .fail(function() {
-      alert("ユーザー検索に失敗しました。");
-    })
+      .done(function(users) {
+        $("#user-search-result").empty();
+        if(users.length !== 0) {
+          users.forEach(function(user){
+            appendUser(user);
+          });
+        }
+        else {
+          appendNoUser("一致するユーザーはいません。")
+        }
+      })
+      .fail(function() {
+        alert("ユーザー検索に失敗しました。");
+      })
+    });
   });//ここまでkeyup時の処理
 
   function addUser(user) {
