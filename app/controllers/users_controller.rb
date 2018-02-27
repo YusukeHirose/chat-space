@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    users = Member.find_by_sql(['select * from members where group_id = ?', 1])
     @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20).where.not(id: current_user)
     respond_to do |format|
       format.html
