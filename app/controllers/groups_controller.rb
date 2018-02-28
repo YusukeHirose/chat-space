@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   before_action :find_group, only: [:edit, :update]
-  before_action :find_member, only: [:new, :edit, :update]
+  before_action :find_members, only: [:new, :edit, :update]
 
   def index
     @groups = current_user.groups
@@ -42,7 +42,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, user_ids: [])
   end
 
-  def find_member
+  def find_members
     @members = @group.users
   end
 
