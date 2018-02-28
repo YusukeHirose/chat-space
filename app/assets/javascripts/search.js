@@ -18,8 +18,8 @@ $(function() {
   }
 
   $("#user-search-field").ready(function() {
-    $(document).on("keyup", this, function(){
-    var input = $("#user-search-field").val();
+    $("#user-search-field").on("keyup",this, function(){
+    var input = $(this).val();
 
       $.ajax({
         type: 'GET',
@@ -43,7 +43,7 @@ $(function() {
         alert("ユーザー検索に失敗しました。");
       })
     });
-  });//ここまでkeyup時の処理
+  });
 
   function addUser(user) {
     var userId = $(user).data("user-id");
@@ -56,13 +56,23 @@ $(function() {
     memberList.append(html)
   };
 
-  $(document).on("click",".user-search-add", function(){
-    $(this).parent().remove();
-    addUser(this);
-  });
-
-  $(document).on("click",".user-search-remove", function(){
-    $(this).parent().remove();
-  });
+  $(document).on("click", ".chat-group-user__btn", function(e){
+    console.log($(e.currentTarget)[0].innerText);
+       switch ($(e.currentTarget)[0].innerText) {
+         case "追加":
+            console.log("ad");
+           $(this).parent().remove();
+           console.log(this);
+           addUser(this);
+           break;
+         case "削除":
+            console.log("re")
+           $(this).parent().remove();
+           break;
+         default:
+           break;
+       };
+    }
+  );
 
 });
