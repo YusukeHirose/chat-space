@@ -57,16 +57,12 @@ $(function() {
   };
 
   $(document).on("click", ".chat-group-user__btn", function(e){
-    console.log($(e.currentTarget)[0].innerText);
        switch ($(e.currentTarget)[0].innerText) {
          case "追加":
-            console.log("ad");
            $(this).parent().remove();
-           console.log(this);
            addUser(this);
            break;
          case "削除":
-            console.log("re")
            $(this).parent().remove();
            break;
          default:
