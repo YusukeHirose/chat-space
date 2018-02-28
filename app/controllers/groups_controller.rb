@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
-  before_action :find_group, only: %i(edit update)
-  before_action :find_member, only: %i(new edit update)
+  before_action :find_group, only: [:edit, :update]
+  before_action :find_member, only: [:new, :edit, :update]
 
   def index
     @groups = current_user.groups
