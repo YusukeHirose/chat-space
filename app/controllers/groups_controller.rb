@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
   end
 
   def find_member
-    @member = @group.users
+    @members = @group.users
   end
 
 end

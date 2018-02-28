@@ -36,7 +36,7 @@
         .chat-group-user.clearfix
         = f.hidden_field :user_id, name: "group[user_ids][]", value: current_user.id
       #member-list
-        - @member.each do |user|
+        - @members.each do |user|
           .chat-group-user.clearfix.js-chat-member
             %p{class: "chat-group-user__name"}#{user.name}
             = f.hidden_field :user_id, name: "group[user_ids][]", value: user.id
