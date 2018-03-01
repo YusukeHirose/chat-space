@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").exclude_currentUser(current_user)
+    @users = User.search_name(params[:keyword]).exclude_currentUser(current_user)
     respond_to do |format|
       format.html
       format.json
