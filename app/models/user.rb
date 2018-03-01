@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :members, dependent: :destroy
   has_many :messages
 
-  scope :exclude_currentUser, -> (user) { where.not(id: user.id).limit(20) }
+  scope :exclude_currentUser, -> (current_user) { where.not(id: current_user.id).limit(20) }
 
 end
