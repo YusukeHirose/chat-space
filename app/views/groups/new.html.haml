@@ -2,52 +2,37 @@
 .chat-group-form
   %h1 新規チャットグループ
   .new_chat_group#new_chat_group
-  = form_for @group do |f|
 
-    -if @group.errors.any?
-      .chat-group-form__errors
-        #error_explanation
-          %h2= "#{ (@group.errors.count) } 件のエラーがあります。"
-          %ul
-            - @group.errors.full_messages.each do |msg|
-              %li= msg
-
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label "グループ名",:name , class: "chat-group-form__label",for: "chat_group_name"
-      .chat-group-form__field--right
-        = f.text_field :name ,placeholder: "グループ名を入力してください" ,class: "chat-group-form__input", id: "chat_group_name"
-
-    .chat-group-form__field.clearfix
-      / <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-      / .chat-group-form__field--left'
-      /   %label{class: "chat-group-form__label" ,for: "chat_group_チャットメンバーを追加"}チャットメンバーを追加
-
-      / .chat-group-form__field--right
-      /   .chat-group-form__search.clearfix
-      /     = f.text_field :user_ids, placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input", id: "user-search-field"
-
-      /   #user-search-result
-
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label "チャットメンバー", class: "chat-group-form__label", for: "chat_group_チャットメンバーchat_group_チャットメンバー"
-
-      .chat-group-form__field--right
-        / <!-- グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-        / = f.collection_check_boxes(:user_ids, User.all, :id, :name, multiple: true, include_hidden: false) do |b|
-        = collection_check_boxes(:group, :user_ids, User.all, :id, :name)
-
-        / <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-        / <!-- #chat-group-users
-        /   .chat-group-user.clearfix#chat-group-user-22
-        /     %input{name: 'chat_group[user_ids][]', type: 'hidden', value='22'}
-        /     %p{class: 'chat-group-user__name'} seo_kyohei
-
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = f.submit "登録する", name: "commit", class: "chat-group-form__action-btn", disable_with: "Save"
+    = render partial: "form"
 
 
-
+    -# .chat-group-form__field.clearfix
+    -#   / <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+    -#   / .chat-group-form__field--left'
+    -#   /   %label{class: "chat-group-form__label" ,for: "chat_group_チャットメンバーを追加"}チャットメンバーを追加
+    -#
+    -#   / .chat-group-form__field--right
+    -#   /   .chat-group-form__search.clearfix
+    -#   /     = f.text_field :user_ids, placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input", id: "user-search-field"
+    -#
+    -#   /   #user-search-result
+    -#
+    -# .chat-group-form__field.clearfix
+    -#   .chat-group-form__field--left
+    -#     = f.label "チャットメンバー", class: "chat-group-form__label", for: "chat_group_チャットメンバーchat_group_チャットメンバー"
+    -#
+    -#   .chat-group-form__field--right
+    -#     / <!-- グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+    -#     / = f.collection_check_boxes(:user_ids, User.all, :id, :name, multiple: true, include_hidden: false) do |b|
+    -#     = collection_check_boxes(:group, :user_ids, User.all, :id, :name)
+    -#
+    -#     / <!-- この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+    -#     / <!-- #chat-group-users
+    -#     /   .chat-group-user.clearfix#chat-group-user-22
+    -#     /     %input{name: 'chat_group[user_ids][]', type: 'hidden', value='22'}
+    -#     /     %p{class: 'chat-group-user__name'} seo_kyohei
+    -#
+    -# .chat-group-form__field.clearfix
+    -#   .chat-group-form__field--left
+    -#   .chat-group-form__field--right
+    -#     = f.submit "登録する", name: "commit", class: "chat-group-form__action-btn", disable_with: "Save"

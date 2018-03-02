@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.search_name(params[:keyword]).exclude_currentUser(current_user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def edit
 
   end
